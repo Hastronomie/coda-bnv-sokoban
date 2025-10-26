@@ -15,6 +15,12 @@ int main()
     int indices[81];
 
     srand(time(NULL));
+    FILE *fp = fopen("end.txt", "w");
+    if (fp == NULL)
+    {
+        printf("Le fichier end.txt n'a pas pu être ouvert\n");
+        return EXIT_FAILURE;
+    }
 
     system("clear");
     initTab(tab);
@@ -38,7 +44,23 @@ int main()
             system("clear");        
             afficher(tab);
             printf("La caisse s'est brisée en mille morceaux et vous avec ! ⊙﹏⊙∥\n");
+
+            fprintf(fp, "=== Perdu ! ===\n");
+            fprintf(fp,"\n# # # # # # # # # #\n");
+            for (int i = 0; i < 9; i++) 
+            {
+                fprintf(fp,"#");
+                for (int j = 0; j < 9; j++)
+                {
+                    fprintf(fp, "%c ", tab[i][j]);
+                }
+                fprintf(fp, "#\n");
+            }
+            fprintf(fp,"# # # # # # # # # #\n");
+            fclose(fp);
+
             exit(0);
+            
         }
 
         system("clear");        
@@ -46,5 +68,20 @@ int main()
         viderBuffer();
     }
     printf("Bravo, vous avez marqué 42 points ! (⌐■_■)\n");
+
+    fprintf(fp, "=== Gagné ! ===\n");
+    fprintf(fp,"\n# # # # # # # # # #\n");
+    for (int i = 0; i < 9; i++) 
+    {
+        fprintf(fp,"#");
+        for (int j = 0; j < 9; j++)
+        {
+            fprintf(fp, "%c ", tab[i][j]);
+        }
+        fprintf(fp, "#\n");
+    }
+    fprintf(fp,"# # # # # # # # # #\n");
+    fclose(fp);
+
     exit(0);
 }
