@@ -1,1 +1,1 @@
-# coda-bnv-sokoban
+J'ai réutilisé pas mal de ma logique du tic-tac-toe. Je l'ai réalisé seule, j'ai eu du mal surtout avec la partie de déplacement et encore plus sur ceux de la boite. Je me suis faite aidé par mon copain (qui code surtout en Java). Mais il m'a aidé en me guidant sur la logique à avoir.
